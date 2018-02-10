@@ -12,6 +12,9 @@ class Movie extends Model
     public function theatres(){
         return $this->belongsToMany(Theatre::class);
     }
+    public function showtimes(){
+        return $this->belongsToMany(Showtime::class);
+    }
 
 //    public function reviews(){
 //        return $this->hasMany(Review::class);

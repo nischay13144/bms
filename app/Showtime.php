@@ -12,4 +12,8 @@ class Showtime extends Model
     public function theatres(){
         return $this->belongsToMany(Theatre::class);
     }
+    public function movies(){
+        return $this->belongsToMany(Movie::class);
+    }
+
 }
