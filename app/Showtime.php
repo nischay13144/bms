@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Showtimes extends Model
+class Showtime extends Model
 {
     //
+    protected $fillable = ['slots'];
+//
     public function theatres(){
         return $this->belongsToMany(Theatre::class);
     }
