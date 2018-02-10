@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\ArtistMovie;
 //use App\GenreMovie;
+use App\MovieShowtime;
+use App\Showtime;
 use App\Theatre;
 use App\User;
 use App\MovieTheatre;
+use App\MovieShowtimeTheatre;
 use Illuminate\Http\Request;
 use App\Movie;
 //use App\Genre;
@@ -31,8 +34,9 @@ class MovieController extends Controller
 //        $genres = Genre::all();
 //        $artists = Artist::all();
         $theatres = Theatre::all();
+        $showtimes = Showtime::all();
         //dd($genres);
-        return view('movies.create',compact('theatres'));
+        return view('movies.create',compact('theatres','showtimes'));
     }
 
     public function store(){
@@ -49,6 +53,15 @@ class MovieController extends Controller
            'theatre_id' => $theatreId
         ]);
     }
+
+        foreach (request('showtimes') as $showtimeId){
+
+            $movie_showtime = MovieShowtime::create([
+                'movie_id' => $movie->id,
+                'showtime_id' => $showtimeId
+            ]);
+        }
+
 
 //        $movie->theatres()->sync(request('theatres'));
 //        foreach (request('artists') as $artistId){

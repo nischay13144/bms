@@ -24,6 +24,11 @@
                 <input type='checkbox' name='theatres[]' value="{{$theatre->id}}">{{$theatre->name}}<br>
                 @endforeach
 
+                Select Showtimes<br>
+                @foreach($showtimes as $showtime)
+                    <input type='checkbox' name='showtimes[]' value="{{$showtime->id}}">{{$showtime->slots}}<br>
+                @endforeach
+
             </div>
 
 
