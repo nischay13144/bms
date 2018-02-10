@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Showtime;
 use App\Theatre;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class TheatreController extends Controller
     public function show($id){
 
         $theatre = Theatre::find($id);
-
+        $showtime = Showtime::all();
         $user = auth()->user();
         //dd($user);
         return view('theatres.show',compact('theatre','user'));
